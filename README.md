@@ -11,7 +11,7 @@ $> git clone https://github.com/seichirino/JavaRushTestTask.git
 
 Порт - 3306
 
-Скрипты базы находяться в папке /scripts/
+Скрипты базы находятся в папке /scripts/
 
 ## Cкрипты:
 
