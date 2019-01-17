@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head th:replace="fragments/head :: head"></head>
+<body>
+<div class="container">
+    <div th:replace="fragments/header :: header"></div>
+    <div th:if="${not #lists.isEmpty(parts)}">
+        <div th:replace="operations/list :: parts"></div>
+    </div>
+    <div th:if="${#lists.isEmpty(parts)}">
+        <table>
+            <tr>
+        <label>Ничего не найдено</label>
+            </tr>
+            <tr>
+        <td style="text-align: center"><a th:href="@{'/home'}"><i class="fa fa-home" style="font-size: 20px;color:#3700B3"></i>Назад</a></td>
+            </tr>
+        </table>
+    </div>
+    <div th:replace="fragments/footer :: footer"></div>
+</div>
+</body>
+</html>

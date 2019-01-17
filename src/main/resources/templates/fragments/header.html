@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="eng"
+      xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<div th:fragment="header">
+    <nav class="navbar-default navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header">
+                <a class="navbar-brand" th:href="@{/home}"><i class="fa fa-home" style="font-size:25px;"></i> База данных компьютерных комплектующих</a>
+                <ul class="nav navbar-nav">
+                    <li><a href="#" th:href="@{/new}"><i class="fa fa-plus-circle" style="font-size:20px;"></i> Новая комплектующая</a></li>
+                </ul>
+
+            </div>
+
+        </div>
+    </nav>
+</div>
+</html>

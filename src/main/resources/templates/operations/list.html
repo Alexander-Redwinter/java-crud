@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<!--suppress ALL -->
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<div th:fragment="parts">
+
+
+
+    <table>
+
+        <tr>
+        <form class="form-horizontal" th:action="@{/search}" name="input_form" id="input_form"
+              role="search">
+            <div class="form-group">
+                <input type="text" class="form-control" id="searchParam" th:name="searchParam" placeholder="Поиск" maxlength="100"/>
+                <button type="submit" class="btn btn-primary">Поиск <i class="fa fa-search"></i></button>
+            </div>
+
+        </form>
+        </tr>
+        <tr>
+            <td style="text-align: center"><a th:href="@{'/sort'}"><i class="fa fa-filter" style="font-size: 20px;color:#3700B3"></i>Фильтр необходимости: </a></td>
+            <td th:if="${sortType} == 0">Все</td>
+            <td th:if="${sortType} == 1">Необходимые</td>
+            <td th:if="${sortType} == 2">Опциональные</td>
+        </tr>
+
+    </table>
+
+
+
+
+
+
+
+    <table class="table table-bordered table-hover horizontal-align">
+        <thead>
+        <tr>
+            <th style="width: 5%">№</th>
+            <th style="width: 20%">Название комплектующей</th>
+            <th style="width: 5%">Количество</th>
+            <th style="width: 5%">Необходимость</th>
+            <th style="width: 5%">Редактировать</th>
+            <th style="width: 5%">Удалить</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="part : ${parts}">
+            <td th:text="${part.id}" style="text-align: center">#</td>
+            <td th:text="${part.name}">Название</td>
+            <td th:text="${part.amount}">Количество</td>
+            <td style="text-align: center">
+                <i th:if="${part.required} == true" class="fa fa-warning" style="font-size:20px;color:#c6afe3"></i>
+            </td>
+            <td style="text-align: center"><a th:href="@{'/edit/{id}'(id=${part.id})}"><i class="fa fa-edit" style="font-size:20px;color:#3700B3"></i></a></td>
+            <td style="text-align: center"><a th:href="@{'/delete/{id}'(id=${part.id})}"><i class="fa fa-trash" style="font-size:20px;color:#3700B3"></i></a></td>
+        </tr>
+        </tbody>
+    </table>
+    <td style="text-align: center"><a th:href="@{'/pagedown'}"><i class="fa fa-arrow-circle-o-left" style="font-size:20px;color:#3700B3"></i></a></td>
+    <td th:text="${currentPage}">#</td>
+    <td><label style="font-size: 20px">:</label></td>
+    <td th:text="${maxPage}">#</td>
+    <td style="text-align: center"><a th:href="@{'/pageup'}"><i class="fa fa-arrow-circle-o-right" style="font-size:20px;color:#3700B3"></i></a></td>
+    <table class="table table-bordered">
+        <thead><tr><th>Можно собрать компьютеров: </th></tr></thead>
+        <tr>
+            <td th:text="${toCreate}" ></td>
+        </tr>
+    </table>
+
+</div>
+</html>

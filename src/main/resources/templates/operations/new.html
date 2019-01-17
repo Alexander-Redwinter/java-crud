@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<!--suppress ALL -->
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head th:replace="fragments/head :: head"></head>
+<body>
+<div class="container">
+    <div th:replace="fragments/header :: header"></div>
+    <div class="container">
+        <form class="form-horizontal" th:action="@{/save}" name="input_form" id="input_form"
+              method="post" role="form">
+            <div class="form-group">
+                <input type="text" class="form-control" id="name" th:name="name" placeholder="Название комплектующей" maxlength="100"/>
+            </div>
+            <div class="form-group">
+                <input type="number" class="form-control" id="amount" th:name="amount" placeholder="Количество в наличии" maxlength="100"/>
+            </div>
+            <div class="form-group">
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" id="required" th:name="required"/>
+                    <label class="form-check-label" for="required">
+                        Необходимость
+                    </label>
+            </div>
+            </div>
+            <button type="submit" class="btn btn-primary"><i class="fa fa-plus-circle" style="font-size:15px;"></i> ОК</button>
+        </form>
+    </div>
+
+</div>
+</body>
+</html>
