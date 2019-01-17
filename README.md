@@ -22,3 +22,5 @@ $> git clone https://github.com/seichirino/JavaRushTestTask.git
 ## Запуск:
 
 Программа написана с использованием springboot, поэтому сама собирает maven проект и запускает tomcat сервер по адресу http://localhost:8080
+
+![screenshot](screenshot.png)
